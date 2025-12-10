@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "bionic_world",
+  "version": "2.3.0",
+  "description": "Bionic World Template Assets - Responsive Edition",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.bionic_world",
+      "type": "style",
+      "uri": "template.css"
+    },
+    {
+      "name": "template.bionic_world",
+      "type": "script",
+      "uri": "mobile-menu.js",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "template.bionic_world.faq",
+      "type": "script",
+      "uri": "faq.js",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "template.bionic_world.tables",
+      "type": "script",
+      "uri": "responsive-tables.js",
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}
