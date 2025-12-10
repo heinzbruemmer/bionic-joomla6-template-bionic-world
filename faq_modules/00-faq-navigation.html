@@ -1,0 +1,140 @@
+<!-- FAQ NAVIGATION MODULE -->
+<!-- Zeigt Links zu allen FAQ-Bereichen -->
+
+<div class="faq-navigation">
+    <h2>FAQ Übersicht</h2>
+    <p>Wählen Sie einen Bereich, um die häufig gestellten Fragen zu diesem Thema anzuzeigen:</p>
+    
+    <div class="faq-nav-grid">
+        <a href="#faq-allgemein" class="faq-nav-card">
+            <div class="faq-nav-icon">❓</div>
+            <h3>Allgemeine Fragen</h3>
+            <p>Über Bionic World und unsere Technologien</p>
+        </a>
+        
+        <a href="#faq-mfuel" class="faq-nav-card">
+            <div class="faq-nav-icon">⚡</div>
+            <h3>µFuel</h3>
+            <p>Nachhaltige Kraftstoff-Produktion</p>
+        </a>
+        
+        <a href="#faq-msoil" class="faq-nav-card">
+            <div class="faq-nav-icon">🌱</div>
+            <h3>µSoil</h3>
+            <p>Bio-Dünger aus Biokohle</p>
+        </a>
+        
+        <a href="#faq-mwaste" class="faq-nav-card">
+            <div class="faq-nav-icon">♻️</div>
+            <h3>µWaste</h3>
+            <p>Abfallverwertung</p>
+        </a>
+        
+        <a href="#faq-msorb" class="faq-nav-card">
+            <div class="faq-nav-icon">🧪</div>
+            <h3>µSorb</h3>
+            <p>Absorptions- und Filtermaterialien</p>
+        </a>
+        
+        <a href="#faq-mctl" class="faq-nav-card">
+            <div class="faq-nav-icon">⚙️</div>
+            <h3>µCTL</h3>
+            <p>Kohle-zu-Flüssigkeit Verfahren</p>
+        </a>
+        
+        <a href="#faq-mpower" class="faq-nav-card">
+            <div class="faq-nav-icon">⚡</div>
+            <h3>µPower</h3>
+            <p>Nachhaltige Energieerzeugung</p>
+        </a>
+        
+        <a href="#faq-mtyre" class="faq-nav-card">
+            <div class="faq-nav-icon">🚗</div>
+            <h3>µTyre</h3>
+            <p>Altreifen-Verwertung</p>
+        </a>
+        
+        <a href="#faq-co2" class="faq-nav-card">
+            <div class="faq-nav-icon">🌍</div>
+            <h3>CO₂-Reduktion</h3>
+            <p>Emissionsminderung</p>
+        </a>
+        
+        <a href="#faq-mai" class="faq-nav-card">
+            <div class="faq-nav-icon">🤖</div>
+            <h3>µAI</h3>
+            <p>KI-gestützte Prozesssteuerung</p>
+        </a>
+    </div>
+</div>
+
+<style>
+.faq-navigation {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+.faq-navigation h2 {
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.faq-navigation > p {
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.faq-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.faq-nav-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.faq-nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,102,204,0.15);
+    border-color: #0066cc;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.faq-nav-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.faq-nav-card h3 {
+    color: #0066cc;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.faq-nav-card p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .faq-navigation {
+        padding: 25px;
+    }
+    
+    .faq-nav-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
