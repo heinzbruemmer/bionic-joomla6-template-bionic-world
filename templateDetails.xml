@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" client="site" method="upgrade">
+    <name>bionic_world</name>
+    <version>4.7.0</version>
+    <creationDate>December 2024</creationDate>
+    <author>Bionic World</author>
+    <authorEmail>info@bionic-world.net</authorEmail>
+    <authorUrl>https://www.bionic-world.net</authorUrl>
+    <copyright>Copyright (C) 2024 Bionic World. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <description>TPL_BIONIC_WORLD_XML_DESCRIPTION</description>
+
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>joomla.asset.json</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+        <folder>html</folder>
+        <folder>language</folder>
+    </files>
+
+    <positions>
+        <position>breadcrumbs</position>
+        <position>top-bar</position>
+        <position>top-middle-right</position>
+        <position>navigation</position>
+        <position>hero</position>
+        <position>highlight</position>
+        <position>stats</position>
+        <position>welcome</position>
+        <position>technologies</position>
+        <position>main-bottom</position>
+        <position>sidebar-right</position>
+        <position>footer1</position>
+        <position>footer2</position>
+        <position>footer3</position>
+        <position>footer4</position>
+        <position>auto-bottom</position>
+    </positions>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/tpl_bionic_world.ini</language>
+        <language tag="de-DE">de-DE/tpl_bionic_world.sys.ini</language>
+        <language tag="en-GB">en-GB/tpl_bionic_world.ini</language>
+        <language tag="en-GB">en-GB/tpl_bionic_world.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="advanced">
+                <field
+                    name="logo"
+                    type="media"
+                    label="TPL_BIONIC_WORLD_LOGO_LABEL"
+                    description="TPL_BIONIC_WORLD_LOGO_DESC"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
