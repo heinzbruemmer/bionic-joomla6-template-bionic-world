@@ -1,0 +1,294 @@
+/* =============================================
+   RICHEYWEB EU e-PRIVACY - ZENTRAL & PROMINENT
+   Version 2.0 - Überschreibt alle inline-styles
+   ============================================= */
+
+/* === 1. OVERLAY HINTERGRUND === */
+/* Erstelle einen dunklen Hintergrund wenn Banner sichtbar ist */
+.plg_system_eprivacy_module .plg_system_eprivacy_message[style*="block"]::before,
+.plg_system_eprivacy_module:has(.plg_system_eprivacy_message[style*="block"])::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9997;
+    pointer-events: none;
+}
+
+/* === 2. HAUPTCONTAINER ZENTRAL POSITIONIEREN === */
+.plg_system_eprivacy_module {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9998 !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    pointer-events: none !important;
+}
+
+/* === 3. MESSAGE BOX - ÜBERSCHREIBT display:none === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message {
+    /* Position */
+    position: relative !important;
+    display: block !important; /* ← Überschreibt display:none */
+    
+    /* Größe */
+    max-width: 650px !important;
+    width: 100% !important;
+    
+    /* Styling */
+    background: white !important;
+    border: 4px solid #0066cc !important;
+    border-radius: 15px !important;
+    padding: 45px 50px !important;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6) !important;
+    
+    /* Text */
+    text-align: center !important;
+    
+    /* Layout */
+    margin: 0 auto !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    
+    /* Animation */
+    animation: slideDown 0.4s ease !important;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* === 4. ÜBERSCHRIFT === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message h2 {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1a1a2e !important;
+    margin: 0 0 20px 0 !important;
+    line-height: 1.3 !important;
+    padding: 0 !important;
+}
+
+/* Optional: Icon vor Überschrift */
+.plg_system_eprivacy_module .plg_system_eprivacy_message h2::before {
+    content: '🔒 ';
+    margin-right: 8px;
+    font-size: 28px;
+}
+
+/* === 5. TEXT-ABSÄTZE === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message p {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #555 !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+}
+
+/* === 6. LINKS === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message a {
+    color: #0066cc !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.plg_system_eprivacy_module .plg_system_eprivacy_message a:hover {
+    color: #004499 !important;
+    border-bottom-color: #004499 !important;
+}
+
+/* === 7. BUTTONS - GROẞ UND PROMINENT === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message button,
+button.plg_system_eprivacy_agreed,
+button.plg_system_eprivacy_declined {
+    /* Größe */
+    padding: 20px 50px !important;
+    min-width: 200px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    
+    /* Styling */
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    
+    /* Layout */
+    display: inline-block !important;
+    text-align: center !important;
+    margin: 10px !important;
+    
+    /* Entferne default styles */
+    border: none !important;
+    outline: none !important;
+}
+
+/* === 8. ACCEPT BUTTON (Grün/Blau) === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message button.plg_system_eprivacy_agreed,
+button.plg_system_eprivacy_agreed {
+    background: linear-gradient(135deg, #0066cc 0%, #004499 100%) !important;
+    color: white !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4) !important;
+}
+
+.plg_system_eprivacy_module .plg_system_eprivacy_message button.plg_system_eprivacy_agreed:hover,
+button.plg_system_eprivacy_agreed:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.6) !important;
+}
+
+/* === 9. DECLINE BUTTON (Weiß mit Border) === */
+.plg_system_eprivacy_module .plg_system_eprivacy_message button.plg_system_eprivacy_declined,
+button.plg_system_eprivacy_declined {
+    background: white !important;
+    color: #0066cc !important;
+    border: 3px solid #0066cc !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+.plg_system_eprivacy_module .plg_system_eprivacy_message button.plg_system_eprivacy_declined:hover,
+button.plg_system_eprivacy_declined:hover {
+    background: #f5f5f5 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* === 10. VERSTECKE ANDERE STATES === */
+/* Diese werden angezeigt nachdem User akzeptiert/abgelehnt hat */
+.plg_system_eprivacy_module .plg_system_eprivacy_declined,
+.plg_system_eprivacy_module .plg_system_eprivacy_accepted {
+    display: none !important;
+}
+
+/* === 11. BODY SCROLLEN VERHINDERN === */
+body:has(.plg_system_eprivacy_module .plg_system_eprivacy_message) {
+    overflow: hidden !important;
+}
+
+/* === 12. RESPONSIVE - TABLET === */
+@media (max-width: 768px) {
+    .plg_system_eprivacy_module .plg_system_eprivacy_message {
+        max-width: 90% !important;
+        padding: 35px 30px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message h2 {
+        font-size: 24px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message p {
+        font-size: 15px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message button,
+    button.plg_system_eprivacy_agreed,
+    button.plg_system_eprivacy_declined {
+        min-width: 180px !important;
+        padding: 18px 40px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* === 13. RESPONSIVE - MOBILE === */
+@media (max-width: 480px) {
+    .plg_system_eprivacy_module {
+        padding: 15px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message {
+        max-width: 95% !important;
+        padding: 30px 25px !important;
+        border-width: 3px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message h2 {
+        font-size: 20px !important;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message h2::before {
+        font-size: 20px;
+    }
+    
+    .plg_system_eprivacy_module .plg_system_eprivacy_message p {
+        font-size: 14px !important;
+    }
+    
+    /* Buttons stapeln sich vertikal */
+    .plg_system_eprivacy_module .plg_system_eprivacy_message button,
+    button.plg_system_eprivacy_agreed,
+    button.plg_system_eprivacy_declined {
+        display: block !important;
+        width: 100% !important;
+        min-width: auto !important;
+        margin: 8px 0 !important;
+        padding: 16px 25px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* === 14. FÜR ALTE BROWSER (Fallback ohne :has()) === */
+@supports not (selector(:has(*))) {
+    .plg_system_eprivacy_module::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(5px);
+        z-index: 9997;
+    }
+}
+
+/* === 15. EXTRA FIXES === */
+/* Überschreibe möglicherweise konkurrierende Template-Styles */
+.plg_system_eprivacy_module .plg_system_eprivacy_message * {
+    box-sizing: border-box !important;
+}
+
+/* Stelle sicher dass der Banner immer über allem liegt */
+.plg_system_eprivacy_module {
+    isolation: isolate !important;
+}
+
+/* === 16. ALTERNATIVE FÜR SYSTEM MESSAGE DISPLAY === */
+/* Falls das Plugin als System Message konfiguriert ist */
+#system-message-container .plg_system_eprivacy_module,
+.alert-message .plg_system_eprivacy_module {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9998 !important;
+}
+
+/* === FERTIG === */
+/* Der Banner sollte jetzt zentral mit dunklem Overlay und großen Buttons erscheinen! */
