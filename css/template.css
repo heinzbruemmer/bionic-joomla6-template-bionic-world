@@ -1,0 +1,2229 @@
+/* =============================================
+   BIONIC WORLD TEMPLATE - RESPONSIVE CSS
+   Version 2.0 with Mobile Hamburger Menu
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #00a86b;
+    --dark-bg: #1a1a2e;
+    --light-bg: #f8f9fa;
+    --text-dark: #2c3e50;
+    --text-light: #6c757d;
+    --accent: #ff6b6b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    /* Text umbricht immer, auch bei Zoom */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Allgemeine Regel für alle Textelemente */
+* {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Alle Content-Bereiche */
+.main-content,
+.hero-content,
+.article-content,
+article,
+p,
+div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Links und lange URLs */
+a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Überschriften */
+h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* =============================================
+   HEADER & TOP BAR
+   ============================================= */
+
+.header {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #16213e 100%);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Top Bar with Language Switcher Position */
+.top-bar {
+    background: rgba(255,255,255,0.1);
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.top-bar * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Top-Bar im responsive Modus ausblenden */
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-left {
+    flex: 1;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Language switcher styling in top bar */
+.top-bar-right .mod-languages {
+    display: flex;
+    gap: 5px;
+}
+
+.top-bar-right .mod-languages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.top-bar-right .mod-languages li {
+    margin: 0;
+}
+
+.top-bar-right .mod-languages a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.top-bar-right .mod-languages a:hover,
+.top-bar-right .mod-languages .lang-active a {
+    background: rgba(255,255,255,0.2);
+    color: var(--secondary-color);
+}
+
+/* Navigation Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Main Navigation - Desktop */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+/* Hamburger Button - HIDDEN by default */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger Animation to X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu Overlay - HIDDEN by default */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+
+.hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d3561 100%);
+    color: white;
+    padding: 80px 20px 70px 20px; /* Leicht reduziert: oben 80px, unten 70px */
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Hero Image Styles - für separate Bild-Module */
+
+/* Großes zentriertes Bild */
+.hero-image-large {
+    max-width: 100%;
+    width: 800px;
+    height: auto;
+    margin: 40px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Mittleres Bild */
+.hero-image-medium {
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+    margin: 30px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Kleines Bild */
+.hero-image-small {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Hintergrundbild für Hero */
+.hero-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Dunkler Overlay für bessere Textlesbarkeit */
+.hero-overlay-dark {
+    position: relative;
+}
+
+.hero-overlay-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.hero-overlay-dark > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mehrere Bilder nebeneinander */
+.hero-images-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.hero-images-row img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Button im Hero */
+.btn-primary {
+    background: var(--secondary-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--secondary-color);
+}
+
+/* =============================================
+   STATS SECTION
+   ============================================= */
+
+.stats {
+    background: var(--light-bg);
+    padding: 50px 20px 30px 20px; /* Reduziert: oben 50px, unten 30px - fließt in welcome */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-item {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* =============================================
+   WELCOME SECTION
+   ============================================= */
+
+.welcome {
+    background: var(--light-bg);
+    padding: 30px 20px 0 20px; /* Reduziert: oben nur 30px (nahtlos nach stats) */
+    text-align: center;
+}
+
+/* KRITISCH: Entferne alle margins/paddings von Boxen im welcome */
+.welcome > * {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.welcome .container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Alle divs, Boxen, Karten in welcome */
+.welcome div,
+.welcome .box,
+.welcome .card,
+.welcome .module,
+.welcome .custom {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.welcome h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.welcome p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-light);
+}
+
+/* =============================================
+   TECHNOLOGIES SECTION
+   ============================================= */
+
+.technologies {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tech-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.tech-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.tech-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.tech-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* =============================================
+   FEATURES SECTION
+   ============================================= */
+
+.features {
+    background: var(--primary-color);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-item::before {
+    content: '✓';
+    width: 30px;
+    height: 30px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+
+.main-content {
+    padding: 40px 20px 50px 20px; /* Reduziert: oben 40px, unten 50px */
+    min-height: 400px;
+}
+
+/* Artikel-Boxen - weiße Karten mit Schatten */
+.main-content article,
+.main-content .item,
+.main-content .blog-item,
+.main-content .com-content-article {
+    background: white;
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.main-content article:hover,
+.main-content .item:hover,
+.main-content .blog-item:hover,
+.main-content .com-content-article:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+/* Artikel-Titel */
+.main-content article h1,
+.main-content article h2,
+.main-content article h3,
+.main-content .item h2,
+.main-content .item h3 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Artikel-Text */
+.main-content article p,
+.main-content .item p {
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+/* "Weiterlesen" Links */
+.main-content a.readmore,
+.main-content .btn-readmore {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.main-content a.readmore:hover,
+.main-content .btn-readmore:hover {
+    background: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+/* Trennlinien zwischen Artikeln */
+.main-content hr {
+    border: none;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 40px 0;
+}
+
+/* Liste von Artikeln */
+.main-content .items-leading,
+.main-content .items-row {
+    margin-bottom: 30px;
+}
+
+/* =============================================
+   BREADCRUMBS
+   ============================================= */
+
+.breadcrumbs-section {
+    background: var(--light-bg);
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* =============================================
+   HIGHLIGHT SECTION
+   ============================================= */
+
+.highlight {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 30px 20px 50px 20px; /* Reduziert: oben 30px, unten 50px */
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+}
+
+.highlight h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* =============================================
+   MAIN BOTTOM & SIDEBAR
+   ============================================= */
+
+.main-bottom {
+    padding: 0 0 30px 0 !important; /* Reduziert: unten 30px */
+    margin: -120px 0 0 0 !important; /* Reduziert: -120px statt -180px */
+    background: transparent !important;
+}
+
+/* Container im main-bottom - KEIN padding top */
+.main-bottom .container {
+    padding: 0 20px 0 20px !important;
+    margin: 0 auto !important;
+}
+
+/* WICHTIG: Überschreibe alle inline-styles im Modul */
+.main-bottom div[style*="margin-bottom"] {
+    margin-bottom: 0 !important;
+}
+
+.main-bottom p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Entferne alle margins von Elementen im main-bottom */
+.main-bottom * {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* tech-separator komplett ohne Abstand */
+.main-bottom .tech-separator,
+.main-bottom hr {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    height: 0 !important;
+    display: none !important;
+}
+
+/* Leere Paragraphen ausblenden */
+.main-bottom p:empty,
+.main-bottom p:contains("&nbsp;") {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+/* tech-grid - KEIN padding mehr! */
+.main-bottom .tech-grid {
+    gap: 20px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* helpline-card direkt danach ohne Abstand */
+.main-bottom .helpline-card {
+    margin: 10px 0 0 0 !important;
+}
+
+/* Letztes Element im main-bottom */
+.main-bottom > .container > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.sidebar-right {
+    padding: 60px 20px;
+    background: white;
+}
+
+/* =============================================
+   FAQ STYLES
+   ============================================= */
+
+.faq-container {
+    margin: 40px 0;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.faq-question {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d3561 100%);
+    color: white;
+    padding: 20px 25px;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding-right: 50px;
+    user-select: none;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    color: #333;
+}
+
+.faq-item.active .faq-answer {
+    padding: 25px;
+    max-height: 2000px;
+}
+
+.faq-answer p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+}
+
+.faq-answer strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.faq-answer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.faq-answer a:hover {
+    color: var(--secondary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* FAQ Module Title */
+.faq-module h3 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Responsive FAQ */
+@media (max-width: 768px) {
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px 20px;
+        padding-right: 45px;
+    }
+    
+    .faq-question::after {
+        right: 20px;
+        font-size: 1.3rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 20px;
+    }
+    
+    .faq-answer {
+        font-size: 0.95rem;
+    }
+    
+    .faq-module h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+.footer {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #16213e 100%);
+    color: white;
+    padding: 60px 20px 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+}
+
+/* =============================================
+   RESPONSIVE - TABLET
+   ============================================= */
+
+@media (max-width: 992px) and (min-width: 769px) {
+    nav ul {
+        gap: 20px;
+    }
+    
+    nav ul li a {
+        font-size: 0.95rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* =============================================
+   RESPONSIVE - MOBILE (under 768px)
+   HAMBURGER MENU ONLY ON MOBILE!
+   ============================================= */
+
+@media (max-width: 768px) {
+    
+    /* Top Bar responsive */
+    .top-bar-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .top-bar-left,
+    .top-bar-right {
+        width: 100%;
+    }
+    
+    /* Show Hamburger Button ONLY on mobile */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Hide desktop navigation, show slide-in menu */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        padding: 100px 30px 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    }
+    
+    /* Navigation active (opened) */
+    nav.active {
+        right: 0;
+    }
+    
+    /* Menu items vertical */
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    nav ul li {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    nav ul li a {
+        padding: 18px 0;
+        font-size: 1.1rem;
+    }
+    
+    nav ul li a:hover {
+        padding-left: 10px;
+    }
+    
+    /* Language Switcher im mobilen Menü */
+    nav .mod-languages {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    nav .mod-languages ul {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    
+    nav .mod-languages li {
+        border: none;
+        margin: 0;
+    }
+    
+    nav .mod-languages a {
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    nav .mod-languages a:hover,
+    nav .mod-languages .lang-active a {
+        background: rgba(0, 168, 107, 0.3);
+        transform: scale(1.1);
+        padding: 0 !important;
+    }
+    
+    nav .mod-languages img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+    
+    /* Verstecke den Text, zeige nur Flags */
+    nav .mod-languages span {
+        display: none;
+    }
+    
+    /* Logo adjustments */
+    .logo {
+        font-size: 1.5rem;
+        position: relative;
+        z-index: 998;
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 60px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    /* Hero Images responsive */
+    .hero-image-large,
+    .hero-image-medium {
+        width: 100%;
+        margin: 20px auto;
+    }
+    
+    .hero-image-small {
+        width: 90%;
+        margin: 15px auto;
+    }
+    
+    .hero-images-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-images-row img {
+        max-width: 100%;
+    }
+    
+    .hero-background {
+        padding: 60px 20px;
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .stats-grid,
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .features-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Artikel-Boxen responsive */
+    .main-content article,
+    .main-content .item,
+    .main-content .blog-item,
+    .main-content .com-content-article {
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .main-content article h1,
+    .main-content article h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main-content article h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    nav {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .menu-toggle span {
+        width: 25px;
+    }
+}
+
+/* =============================================
+   TECHNOLOGIE ICON-NAVIGATION
+   Für Kategorietext
+   ============================================= */
+
+.tech-nav-wrapper {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.tech-nav-title {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.tech-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 15px 10px;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tech-nav-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,102,204,0.15);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.tech-nav-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.tech-nav-item:hover .tech-nav-icon {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3);
+}
+
+.tech-nav-label {
+    font-size: 0.75rem;
+    color: #2c3e50;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.tech-nav-item:hover .tech-nav-label {
+    color: #0066cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tech-nav-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .tech-nav-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .tech-nav-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .tech-nav-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-nav-wrapper {
+        padding: 20px 15px;
+    }
+    
+    .tech-nav-grid {
+        gap: 10px;
+    }
+    
+    .tech-nav-item {
+        padding: 12px 8px;
+    }
+}
+
+/* =============================================
+   FAQ SYSTEM CSS
+   ============================================= */
+
+/* FAQ Navigation */
+.faq-navigation {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+.faq-navigation h2 {
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.faq-navigation > p {
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.faq-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.faq-nav-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.faq-nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,102,204,0.15);
+    border-color: #0066cc;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.faq-nav-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.faq-nav-card h3 {
+    color: #0066cc;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.faq-nav-card p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* FAQ Sections */
+.faq-section {
+    margin-bottom: 50px;
+    scroll-margin-top: 100px;
+}
+
+.faq-section-title {
+    color: #1a1a2e;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #0066cc;
+}
+
+/* FAQ Container */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* FAQ Item */
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* FAQ Question */
+.faq-question {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    color: white;
+    padding: 18px 50px 18px 20px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.faq-question:hover {
+    background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* FAQ Answer */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: white;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 2000px;
+    padding: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.faq-answer p {
+    color: #2c3e50;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+    color: #2c3e50;
+    line-height: 1.7;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+}
+
+.faq-answer strong {
+    color: #0066cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-navigation {
+        padding: 25px;
+    }
+    
+    .faq-navigation h2 {
+        font-size: 1.5rem;
+    }
+    
+    .faq-nav-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px 45px 15px 15px;
+    }
+    
+    .faq-question::after {
+        right: 15px;
+        font-size: 1.5rem;
+    }
+    
+    .faq-answer {
+        padding: 0 15px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 15px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE BILDER & MEDIEN
+   Alle Bilder im Content responsive machen
+   ============================================= */
+
+/* Alle Bilder responsive machen */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Bilder in Artikeln und Content-Bereichen */
+.main-content img,
+.article-content img,
+.item-page img,
+.custom img,
+.com-content-article img,
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Verhindere Overflow bei Bildern */
+figure,
+.image-wrapper,
+.img-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive iframes, videos, embeds */
+iframe,
+video,
+embed,
+object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Video Wrapper für 16:9 Aspect Ratio */
+.video-wrapper,
+.embed-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe,
+.video-wrapper video,
+.embed-responsive iframe,
+.embed-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* =============================================
+   RESPONSIVE TABELLEN
+   Tabellen für mobile Geräte optimiert
+   ============================================= */
+
+/* Standard Tabellen-Styling */
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #fff;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1a1a2e;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f0f7ff;
+}
+
+/* Responsive Tabellen für Mobile (< 768px) */
+@media screen and (max-width: 768px) {
+    /* Tabelle für mobile Ansicht umbauen */
+    table {
+        font-size: 0.9em;
+        border: 0;
+    }
+    
+    /* Header ausblenden auf Mobile */
+    table thead {
+        display: none;
+    }
+    
+    /* Zeilen als Karten darstellen */
+    table tbody tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        border: 2px solid #1a1a2e;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Zellen als Blöcke mit Labels */
+    table tbody td {
+        display: block;
+        text-align: right;
+        padding: 12px 15px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        min-height: 45px;
+    }
+    
+    /* Label vor jeder Zelle (aus data-label Attribut) */
+    table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        font-weight: bold;
+        color: #1a1a2e;
+        text-align: left;
+        max-width: 45%;
+        word-wrap: break-word;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Letzte Zelle ohne Border */
+    table tbody td:last-child {
+        border-bottom: 0;
+    }
+    
+    /* Erste Zelle hervorheben */
+    table tbody td:first-child {
+        background-color: #f0f7ff;
+        font-weight: 600;
+    }
+}
+
+/* Alternative: Scroll-Wrapper für sehr breite Tabellen */
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table-scroll-wrapper table {
+    margin: 0;
+    border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .table-scroll-wrapper {
+        border: none;
+    }
+}
+
+/* =============================================
+   CONTENT RESPONSIVE OPTIMIERUNGEN
+   ============================================= */
+
+/* Text umbricht immer - wichtig für Zoom/Barrierefreiheit */
+.main-content,
+.main-content * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Lange URLs umbrechen */
+.main-content a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Code-Blöcke responsive */
+pre,
+code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Blockquotes responsive */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 15px 20px;
+    border-left: 4px solid var(--primary-color);
+    background-color: #f8f9fa;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+    blockquote {
+        margin: 1rem 0;
+        padding: 12px 15px;
+    }
+}
+
+/* Listen responsive */
+ul, ol {
+    padding-left: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+    ul, ol {
+        padding-left: 15px;
+    }
+}
+
+/* Tabellen-Text umbrechen */
+table {
+    table-layout: auto;
+}
+
+table td,
+table th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Navigation Text umbrechen bei Zoom */
+nav ul li a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* =============================================
+   COOKIE / PRIVACY BANNER ZENTRIEREN
+   ============================================= */
+
+/* Allgemeine Cookie Banner Zentrierung */
+.cookie-banner,
+.privacy-banner,
+.gdpr-banner,
+.cookie-notice,
+[class*="cookie"],
+[class*="privacy"],
+[class*="gdpr"],
+[id*="cookie"],
+[id*="privacy"] {
+    text-align: center !important;
+    margin: 0 auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 90% !important;
+    width: auto !important;
+}
+
+/* Cookie Banner Content zentrieren */
+.cookie-banner *,
+.privacy-banner *,
+.gdpr-banner *,
+.cookie-notice * {
+    text-align: center !important;
+}
+
+/* Cookie Banner Buttons zentrieren */
+.cookie-banner button,
+.cookie-banner a,
+.privacy-banner button,
+.privacy-banner a,
+.gdpr-banner button,
+.gdpr-banner a {
+    margin: 5px auto !important;
+    display: inline-block !important;
+}
+
+/* Spezifisch für häufige Cookie Consent Tools */
+#cookie-law-info-bar,
+#cookie-notice,
+.cc-window,
+.cc-banner,
+#cookiescript_injected,
+.cookiesjsr,
+#CybotCookiebotDialog {
+    text-align: center !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    max-width: 90vw !important;
+}
+
+/* Cookie Banner am unteren Rand */
+body > div[style*="position: fixed"],
+body > div[style*="position:fixed"] {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+}
+
+/* Responsive - kleinere Breite auf Mobile */
+@media screen and (max-width: 768px) {
+    .cookie-banner,
+    .privacy-banner,
+    .gdpr-banner,
+    #cookie-law-info-bar,
+    #cookie-notice {
+        max-width: 95% !important;
+        padding: 15px !important;
+    }
+}
+
+/* =============================================
+   SCIENCE PAGE & BIONIC TABELLEN
+   Spezielles Styling für wissenschaftliche Seiten
+   ============================================= */
+
+/* Science Page Container */
+.bionic-science-page {
+    max-width: 100%;
+    padding: 20px;
+    line-height: 1.8;
+}
+
+.bionic-science-page h1 {
+    color: #1a1a2e;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #0891b2;
+    padding-bottom: 15px;
+}
+
+.bionic-science-page h2 {
+    color: #1a1a2e;
+    font-size: 1.8rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0891b2;
+    padding-bottom: 10px;
+}
+
+.bionic-science-page p {
+    margin-bottom: 15px;
+}
+
+.bionic-science-page ul {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.bionic-science-page ul li {
+    margin-bottom: 10px;
+}
+
+/* Inhaltsverzeichnis */
+.bionic-science-page > ul:first-of-type {
+    background: #f8f9fa;
+    padding: 20px 20px 20px 45px;
+    border-radius: 8px;
+    border-left: 4px solid #0891b2;
+}
+
+/* Table Wrapper für horizontales Scrollen (Fallback) */
+.bionic-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 30px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Tabellen Basis-Styling */
+.bionic-table-wrapper table {
+    width: 100%;
+    min-width: 800px; /* Mindestbreite für Desktop */
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.95rem;
+}
+
+.bionic-table-wrapper th {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bionic-table-wrapper td {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+}
+
+.bionic-table-wrapper tbody tr:hover {
+    background-color: #f0f7ff;
+}
+
+/* Links in Tabellen */
+.bionic-table-wrapper a {
+    color: #0891b2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bionic-table-wrapper a:hover {
+    text-decoration: underline;
+    color: #06b6d4;
+}
+
+/* Sub/Superscript in Tabellen */
+.bionic-table-wrapper sub,
+.bionic-table-wrapper sup {
+    font-size: 0.75em;
+}
+
+/* Responsive Tabellen für Mobile */
+@media screen and (max-width: 968px) {
+    .bionic-table-wrapper {
+        overflow-x: auto;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    }
+    
+    .bionic-table-wrapper table {
+        min-width: 700px; /* Kleinere Mindestbreite */
+    }
+    
+    .bionic-table-wrapper th,
+    .bionic-table-wrapper td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Sehr kleine Bildschirme - Karten-Layout */
+@media screen and (max-width: 768px) {
+    .bionic-science-page {
+        padding: 15px;
+    }
+    
+    .bionic-science-page h1 {
+        font-size: 1.8rem;
+    }
+    
+    .bionic-science-page h2 {
+        font-size: 1.5rem;
+        margin-top: 40px;
+    }
+    
+    /* Tabelle als Karten-Layout auf sehr kleinen Bildschirmen */
+    .bionic-table-wrapper {
+        overflow-x: visible;
+        box-shadow: none;
+    }
+    
+    .bionic-table-wrapper table {
+        min-width: 100%;
+        border: 0;
+        font-size: 0.9em;
+    }
+    
+    /* Header ausblenden */
+    .bionic-table-wrapper thead {
+        display: none;
+    }
+    
+    /* Zeilen als Karten */
+    .bionic-table-wrapper tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 2px solid #0891b2;
+        border-radius: 8px;
+        padding: 15px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .bionic-table-wrapper tbody tr:hover {
+        background: #f0f7ff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Zellen als Blöcke mit Labels */
+    .bionic-table-wrapper td {
+        display: block;
+        text-align: left;
+        padding: 10px 0;
+        border: none;
+        border-bottom: 1px solid #e9ecef;
+        position: relative;
+        padding-left: 0;
+        min-height: auto;
+    }
+    
+    .bionic-table-wrapper td:before {
+        content: attr(data-label);
+        display: block;
+        font-weight: bold;
+        color: #0891b2;
+        margin-bottom: 5px;
+        font-size: 0.85em;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .bionic-table-wrapper td:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    /* Erste Zelle hervorheben */
+    .bionic-table-wrapper td:first-child {
+        font-weight: 600;
+        color: #1a1a2e;
+        padding-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .bionic-table-wrapper td:first-child:before {
+        color: #1a1a2e;
+    }
+    
+    /* Links in mobilen Tabellen */
+    .bionic-table-wrapper td a {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 8px 15px;
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+        color: white !important;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
+    
+    .bionic-table-wrapper td a:hover {
+        background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+        text-decoration: none;
+    }
+}
+
+
+/* =============================================
+   BIONIC COOKIE BANNER - FINAL PRIVACY LAYOUT (BREITER + DETAILS + FULL WIDTH)
+   ============================================= */
+
+/* Overlay-Ebene des Bionic-Banners von generischen Cookie-Regeln befreien */
+#bionic-cookie-banner.bionic-cookie-overlay {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+/* Alle Bionic-Cookie-Container vom 50%-Shift befreien */
+#bionic-cookie-banner .bionic-cookie-modal,
+#bionic-cookie-banner .bionic-cookie-header,
+#bionic-cookie-banner .bionic-cookie-body,
+#bionic-cookie-banner .bionic-cookie-footer,
+#bionic-cookie-banner .bionic-cookie-message,
+#bionic-cookie-banner .bionic-cookie-link,
+#bionic-cookie-banner .bionic-cookie-details {
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Kompakte, zentrierte Darstellung – breiter für Fließtext */
+#bionic-cookie-banner .bionic-cookie-modal {
+    max-width: 620px !important;
+    width: 95vw !important;
+    margin: 0 auto !important;
+}
+
+/* Header / Body / Footer */
+#bionic-cookie-banner .bionic-cookie-header {
+    padding: 18px 24px !important;
+    text-align: left !important;
+}
+
+#bionic-cookie-banner .bionic-cookie-title {
+    margin: 0 !important;
+}
+
+#bionic-cookie-banner .bionic-cookie-body {
+    padding: 20px 24px !important;
+    text-align: left !important;
+}
+
+#bionic-cookie-banner .bionic-cookie-message {
+    margin: 0 0 14px 0 !important;
+}
+
+/* Detailbereich: volle Breite und gut lesbar */
+#bionic-cookie-banner .bionic-cookie-details,
+#bionic-cookie-banner .bionic-cookie-details-content {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+#bionic-cookie-banner .bionic-cookie-details {
+    margin-top: 18px !important;
+}
+
+#bionic-cookie-banner .bionic-cookie-details-content {
+    display: block !important;
+    background: #f8f9fa !important;
+    color: #333 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    max-height: none !important;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+/* Footer / Buttons */
+#bionic-cookie-banner .bionic-cookie-footer {
+    padding: 16px 24px 22px !important;
+}
+
+/* Buttons kompakt, gut lesbar */
+#bionic-cookie-banner .bionic-cookie-btn {
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    min-width: 140px !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
